@@ -11,8 +11,6 @@ import 'package:rick_and_morty/gen/assets.gen.dart';
 import 'package:rick_and_morty/models/character/character.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
-
 class CharacterCard extends StatelessWidget {
   static const double _borderRadius = 20;
   static const double _likeContainerSize = 30;
@@ -59,12 +57,18 @@ class CharacterCard extends StatelessWidget {
                     ),
                     child: Image.network(
                       character.image,
-                      frameBuilder: (BuildContext context, Widget child, int? frame,
-                          bool wasSynchronouslyLoaded) {
+                      frameBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        int? frame,
+                        bool wasSynchronouslyLoaded,
+                      ) {
                         if (wasSynchronouslyLoaded || frame != null) {
                           return Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(_borderRadius),
+                              borderRadius: BorderRadius.circular(
+                                _borderRadius,
+                              ),
                             ),
                             child: child,
                           );
@@ -75,15 +79,16 @@ class CharacterCard extends StatelessWidget {
                             child: SizedBox(
                               height: _loaderSize,
                               width: _loaderSize,
-                              child: Center(
-                                child: CircularProgressIndicator(),
-                              ),
+                              child: Center(child: CircularProgressIndicator()),
                             ),
                           );
                         }
                       },
-                      loadingBuilder:
-                          (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                      loadingBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        ImageChunkEvent? loadingProgress,
+                      ) {
                         if (loadingProgress == null) {
                           return child;
                         } else {
@@ -95,23 +100,27 @@ class CharacterCard extends StatelessWidget {
                               width: _loaderSize,
                               child: Center(
                                 child: CircularProgressIndicator(
-                                  value: loadingProgress.expectedTotalBytes != null
-                                      ? getImageLoadingProgress(loadingProgress)
-                                      : 0,
+                                  value:
+                                      loadingProgress.expectedTotalBytes != null
+                                          ? getImageLoadingProgress(
+                                            loadingProgress,
+                                          )
+                                          : 0,
                                 ),
                               ),
                             ),
                           );
                         }
                       },
-                      errorBuilder:
-                          (BuildContext context, Object exception, StackTrace? stackTrace) {
+                      errorBuilder: (
+                        BuildContext context,
+                        Object exception,
+                        StackTrace? stackTrace,
+                      ) {
                         return SizedBox(
                           height: 160,
                           width: 160,
-                          child: Expanded(
-                            child: Container(),
-                          ),
+                          child: Container(),
                         );
                       },
                     ),
@@ -124,7 +133,9 @@ class CharacterCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(_borderRadius),
                       child: InkWell(
                         onTap: () async {
-                          await context.read<HomeCubit>().toggleFavoriteCharacter(character.id);
+                          await context
+                              .read<HomeCubit>()
+                              .toggleFavoriteCharacter(character.id);
                         },
                         borderRadius: BorderRadius.circular(_borderRadius),
                         child: SizedBox(
@@ -132,7 +143,9 @@ class CharacterCard extends StatelessWidget {
                           width: _likeContainerSize,
                           child: Center(
                             child: SvgPicture.asset(
-                              isFavorite ? Assets.images.liked.path : Assets.images.unliked.path,
+                              isFavorite
+                                  ? Assets.images.liked.path
+                                  : Assets.images.unliked.path,
                               width: _iconSize,
                               height: _iconSize,
                             ),
@@ -140,7 +153,7 @@ class CharacterCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               Padding(

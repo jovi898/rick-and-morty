@@ -23,7 +23,7 @@ dependencies:
   flutter_svg: ^2.1.0
   dyn_mouse_scroll: ^1.0.7
   smooth_scroll_multiplatform: ^1.0.8
-  skeletonizer: ^1.4.3
+  skeletonizer: ^2.1.0+1
   sqflite: ^2.4.2
 
 dev_dependencies:
