@@ -2,7 +2,8 @@ import 'package:rick_and_morty/data/sqlfite/favorite_characters/schema.dart';
 import 'package:sqflite/sqflite.dart';
 
 class FavoriteCharactersDatabase {
-  static final FavoriteCharactersDatabase instance = FavoriteCharactersDatabase._internal();
+  static final FavoriteCharactersDatabase instance =
+      FavoriteCharactersDatabase._internal();
 
   static Database? _database;
 
@@ -21,11 +22,7 @@ class FavoriteCharactersDatabase {
   Future<Database> _initDatabase() async {
     final databasePath = await getDatabasesPath();
     final path = '$databasePath/favorite_characters_db.db';
-    return await openDatabase(
-      path,
-      version: 1,
-      onCreate: _createDatabase,
-    );
+    return await openDatabase(path, version: 1, onCreate: _createDatabase);
   }
 
   Future<void> _createDatabase(Database db, int version) async {

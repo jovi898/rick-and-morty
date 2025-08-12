@@ -5,8 +5,7 @@ import 'package:rick_and_morty/domain/use_cases/get_character_details_use_case.d
 import 'package:rick_and_morty/features/details/state/details/details_state.dart';
 
 class DetailsCubit extends Cubit<DetailsState> {
-  DetailsCubit()
-      : super(DetailsState(details: null));
+  DetailsCubit() : super(DetailsState(details: null));
 
   final GetCharacterDetailsUseCase _getCharacterDetailsUseCase =
       getIt.get<GetCharacterDetailsUseCase>();

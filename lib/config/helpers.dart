@@ -3,7 +3,8 @@ import 'package:rick_and_morty/gen/assets.gen.dart';
 import 'package:rick_and_morty/models/character/character.dart';
 
 double getImageLoadingProgress(ImageChunkEvent loadingProgress) {
-  return loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1);
+  return loadingProgress.cumulativeBytesLoaded /
+      (loadingProgress.expectedTotalBytes ?? 1);
 }
 
 String getCharacterStatusIconPath(CharacterStatus value) {
@@ -18,7 +19,7 @@ String getCharacterStatusIconPath(CharacterStatus value) {
 }
 
 String getCharacterGenderIconPath(CharacterGender value) {
-  switch(value){
+  switch (value) {
     case CharacterGender.female:
       return Assets.images.female.path;
     case CharacterGender.male:
@@ -31,16 +32,15 @@ String getCharacterGenderIconPath(CharacterGender value) {
 }
 
 String getCharacterSpeciesIconPath(CharacterSpecies value) {
-  switch(value){
+  switch (value) {
     case CharacterSpecies.human:
       return Assets.images.human.path;
-    case CharacterSpecies.alien :
+    case CharacterSpecies.alien:
       return Assets.images.alien.path;
     default:
       return Assets.images.alien.path;
   }
 }
-
 
 extension ToLabelCase on String {
   toLabelCase() {

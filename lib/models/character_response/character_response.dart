@@ -1,29 +1,24 @@
- import 'package:rick_and_morty/models/character/character.dart';
+import 'package:rick_and_morty/models/character/character.dart';
 
- 
- class CharacterResponse {
+class CharacterResponse {
   final List<Character> results;
   final CharacterResponseInfo info;
 
-  CharacterResponse({
-    required this.info,
-    required this.results
-  });
+  CharacterResponse({required this.info, required this.results});
 
   factory CharacterResponse.fromJson(Map<String, dynamic> json) =>
-         CharacterResponse(
-      info: CharacterResponseInfo.fromJson(
-        json['info'] as Map<String, dynamic>,
-      ),
-      results:
-          (json['results'] as List<dynamic>)
-              .map((e) => Character.fromJson(e as Map<String, dynamic>))
-              .toList(),
-    );
+      CharacterResponse(
+        info: CharacterResponseInfo.fromJson(
+          json['info'] as Map<String, dynamic>,
+        ),
+        results:
+            (json['results'] as List<dynamic>)
+                .map((e) => Character.fromJson(e as Map<String, dynamic>))
+                .toList(),
+      );
+}
 
- }
-
- class CharacterResponseInfo {
+class CharacterResponseInfo {
   final int count;
   final int pages;
   final String? next;
@@ -37,11 +32,10 @@
   });
 
   factory CharacterResponseInfo.fromJson(Map<String, dynamic> json) =>
-     CharacterResponseInfo(
-  count: (json['count'] as num).toInt(),
-  pages: (json['pages'] as num).toInt(),
-  next: json['next'] as String?,
-  prev: json['prev'] as String?,
-);
-
- }
+      CharacterResponseInfo(
+        count: (json['count'] as num).toInt(),
+        pages: (json['pages'] as num).toInt(),
+        next: json['next'] as String?,
+        prev: json['prev'] as String?,
+      );
+}

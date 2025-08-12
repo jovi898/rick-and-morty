@@ -23,7 +23,8 @@ configureDependencies() async {
 }
 
 _configureLocalStorages() async {
-  final FavoriteCharactersDatabase databaseService = FavoriteCharactersDatabase.instance;
+  final FavoriteCharactersDatabase databaseService =
+      FavoriteCharactersDatabase.instance;
 
   final sqfliteDb = await databaseService.database;
 
@@ -45,7 +46,8 @@ _configureApiClients() {
 }
 
 _configureRepositories() {
-  final RickAndMortyApiClient rickAndMortyApiClient = getIt.get<RickAndMortyApiClient>();
+  final RickAndMortyApiClient rickAndMortyApiClient =
+      getIt.get<RickAndMortyApiClient>();
   final Database favoriteCharactersDatabase = getIt.get<Database>();
   getIt
     ..registerLazySingleton<FavoriteCharactersRepository>(
@@ -57,7 +59,8 @@ _configureRepositories() {
 }
 
 _configureUseCases() {
-  final RickAndMortyRepository rickAndMortyRepository = getIt.get<RickAndMortyRepository>();
+  final RickAndMortyRepository rickAndMortyRepository =
+      getIt.get<RickAndMortyRepository>();
   final FavoriteCharactersRepository favoriteCharactersRepository =
       getIt.get<FavoriteCharactersRepository>();
 

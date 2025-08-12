@@ -1,6 +1,5 @@
 import 'package:rick_and_morty/models/character/character.dart';
 
-
 class HomeState {
   bool isPending;
   List<Character> characters;
@@ -11,20 +10,18 @@ class HomeState {
   bool isAllLoaded;
   bool isLoadingMore;
 
-  
-
   HomeState({
-    required this.isPending, 
-    required this.characters, 
+    required this.isPending,
+    required this.characters,
     required this.favoriteCharacters,
     required this.currentPage,
     required this.totalPages,
     required this.isAllLoaded,
     required this.isLoadingMore,
-    this.errorMessage, 
-    });
+    this.errorMessage,
+  });
 
-  HomeState copyWith ({
+  HomeState copyWith({
     bool? isPending,
     bool? isAllLoaded,
     bool? isLoadingMore,
@@ -33,7 +30,6 @@ class HomeState {
     List<Character>? characters,
     List<int>? favoriteCharacters,
     String? errorMessage,
-    
   }) {
     return HomeState(
       isPending: isPending ?? this.isPending,

@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:rick_and_morty/config/app_colors.dart';
 import 'package:rick_and_morty/config/theme.dart';
 
-class DetailsItem extends StatelessWidget{
+class DetailsItem extends StatelessWidget {
   final String iconPath;
   final String label;
   final String value;
@@ -15,12 +15,11 @@ class DetailsItem extends StatelessWidget{
     super.key,
     required this.iconPath,
     required this.label,
-    required this.value
-
+    required this.value,
   });
 
-@override 
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return ListTile(
       leading: Container(
         width: _iconSize,
@@ -32,22 +31,14 @@ Widget build(BuildContext context) {
         ),
         child: SvgPicture.asset(
           iconPath,
-          colorFilter: ColorFilter.mode(
-            AppColors.whiteSmoke,
-             BlendMode.srcIn
-            ),
+          colorFilter: ColorFilter.mode(AppColors.whiteSmoke, BlendMode.srcIn),
         ),
       ),
       title: Text(
         label,
-        style: FontStyles.bodyMedium.copyWith(
-          color: AppColors.grey,
-        ),
+        style: FontStyles.bodyMedium.copyWith(color: AppColors.grey),
       ),
-      subtitle: Text(
-        value,
-        style: FontStyles.subtitleBold,
-      ),
+      subtitle: Text(value, style: FontStyles.subtitleBold),
     );
   }
 }

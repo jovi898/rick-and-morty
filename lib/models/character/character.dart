@@ -34,7 +34,7 @@ enum CharacterSpecies {
   @JsonValue('Alien')
   alien,
 
-  other
+  other,
 }
 
 @JsonSerializable()
@@ -68,7 +68,8 @@ class Character {
     required this.created,
   });
 
-  factory Character.fromJson(Map<String, dynamic> json) => _$CharacterFromJson(json);
+  factory Character.fromJson(Map<String, dynamic> json) =>
+      _$CharacterFromJson(json);
 
   Map<String, dynamic> toJson() => _$CharacterToJson(this);
 }
@@ -78,10 +79,7 @@ class Origin {
   final String name;
   final String url;
 
-  Origin({
-    required this.name,
-    required this.url,
-  });
+  Origin({required this.name, required this.url});
 
   factory Origin.fromJson(Map<String, dynamic> json) => _$OriginFromJson(json);
 
@@ -93,17 +91,16 @@ class Location {
   final String name;
   final String url;
 
-  Location({
-    required this.name,
-    required this.url,
-  });
+  Location({required this.name, required this.url});
 
-  factory Location.fromJson(Map<String, dynamic> json) => _$LocationFromJson(json);
+  factory Location.fromJson(Map<String, dynamic> json) =>
+      _$LocationFromJson(json);
 
   Map<String, dynamic> toJson() => _$LocationToJson(this);
 }
 
-class CharacterSpeciesConverter implements JsonConverter<CharacterSpecies, String> {
+class CharacterSpeciesConverter
+    implements JsonConverter<CharacterSpecies, String> {
   const CharacterSpeciesConverter();
 
   @override

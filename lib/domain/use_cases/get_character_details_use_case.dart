@@ -7,7 +7,7 @@ class GetCharacterDetailsUseCase {
   GetCharacterDetailsUseCase(this.repository);
 
   Future<Character> execute(int id) async {
-    try{
+    try {
       final response = await repository.getCharactersDetails(id);
       return response;
     } catch (e) {

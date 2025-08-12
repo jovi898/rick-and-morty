@@ -6,8 +6,11 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-key: ValueKey('MyButtonContainer'),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Colors.red),
+      key: ValueKey('MyButtonContainer'),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(80),
+        color: Colors.red,
+      ),
       child: Text('Button'),
     );
   }

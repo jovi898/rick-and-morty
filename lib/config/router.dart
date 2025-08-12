@@ -32,9 +32,9 @@ class AppRouterHelper {
       ),
       GoRoute(
         path: AppRoutes._detailsPath,
-        builder: (context, state) => DetailsView(
-          id: int.parse(state.pathParameters['id']!),
-        ),
+        builder:
+            (context, state) =>
+                DetailsView(id: int.parse(state.pathParameters['id']!)),
       ),
     ];
 

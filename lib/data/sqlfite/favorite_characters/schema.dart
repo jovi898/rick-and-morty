@@ -10,8 +10,8 @@ class FavoriteCharacterModel {
   FavoriteCharacterModel({required this.characterId});
 
   Map<String, Object?> toJson() => {
-        FavoriteCharactersFields.characterId: characterId,
-      };
+    FavoriteCharactersFields.characterId: characterId,
+  };
 
   factory FavoriteCharacterModel.fromJson(Map<String, dynamic> json) {
     return FavoriteCharacterModel(
@@ -19,9 +19,7 @@ class FavoriteCharacterModel {
     );
   }
 
-  FavoriteCharacterModel copyWith({
-    int? characterId,
-  }) {
+  FavoriteCharacterModel copyWith({int? characterId}) {
     return FavoriteCharacterModel(characterId: characterId ?? this.characterId);
   }
 }

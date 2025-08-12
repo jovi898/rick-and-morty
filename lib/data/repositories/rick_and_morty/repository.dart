@@ -16,12 +16,11 @@ class RickAndMortyRepository {
     }
   }
 
-
-  Future<Character> getCharactersDetails(int id)  async {
+  Future<Character> getCharactersDetails(int id) async {
     try {
       final response = await apiClient.getCharactersDetails(id.toString());
       return response;
-    } catch(e) {
+    } catch (e) {
       rethrow;
     }
   }

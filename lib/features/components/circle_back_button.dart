@@ -8,7 +8,7 @@ class CircleBackButton extends StatelessWidget {
   static const double _borderRadius = 44;
   static const double _padding = 10;
 
-  const CircleBackButton ({super.key});
+  const CircleBackButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,12 @@ class CircleBackButton extends StatelessWidget {
       color: AppColors.backButtonColorBg,
       child: InkWell(
         customBorder: CircleBorder(),
-        onTap: () {  
+        onTap: () {
           context.pop();
         },
         child: Container(
           padding: EdgeInsets.all(_padding),
-          child: SvgPicture.asset(
-            Assets.images.arrowLeft.path,
-          ),
+          child: SvgPicture.asset(Assets.images.arrowLeft.path),
         ),
       ),
     );
