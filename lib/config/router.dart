@@ -7,7 +7,7 @@ class AppRoutes {
   static const String homePath = '/';
   static const String _detailsPath = '/detais/:id';
 
-  get detailsPath => _detailsPath.replaceAll("/:id", '');
+  String get detailsPath => _detailsPath.replaceAll("/:id", '');
 }
 
 class AppRouterHelper {

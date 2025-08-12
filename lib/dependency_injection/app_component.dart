@@ -14,7 +14,7 @@ import 'package:sqflite/sqflite.dart';
 
 final getIt = GetIt.instance;
 
-configureDependencies() async {
+Future<void> configureDependencies() async {
   await _configureLocalStorages();
   _configureNetworkDependencies();
   _configureApiClients();
@@ -22,7 +22,7 @@ configureDependencies() async {
   _configureUseCases();
 }
 
-_configureLocalStorages() async {
+Future<void> _configureLocalStorages() async {
   final FavoriteCharactersDatabase databaseService =
       FavoriteCharactersDatabase.instance;
 
@@ -31,12 +31,12 @@ _configureLocalStorages() async {
   getIt.registerLazySingleton<Database>(() => sqfliteDb);
 }
 
-_configureNetworkDependencies() {
+void _configureNetworkDependencies() {
   final Dio dio = Dio();
   getIt.registerSingleton<Dio>(dio);
 }
 
-_configureApiClients() {
+void _configureApiClients() {
   final dio = getIt.get<Dio>();
   final String privateBaseUrl = AppConstants.rickAndMortyApiUrl;
 
@@ -45,7 +45,7 @@ _configureApiClients() {
   );
 }
 
-_configureRepositories() {
+void _configureRepositories() {
   final RickAndMortyApiClient rickAndMortyApiClient =
       getIt.get<RickAndMortyApiClient>();
   final Database favoriteCharactersDatabase = getIt.get<Database>();
@@ -58,7 +58,7 @@ _configureRepositories() {
     );
 }
 
-_configureUseCases() {
+void _configureUseCases() {
   final RickAndMortyRepository rickAndMortyRepository =
       getIt.get<RickAndMortyRepository>();
   final FavoriteCharactersRepository favoriteCharactersRepository =

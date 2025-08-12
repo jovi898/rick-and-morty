@@ -34,7 +34,7 @@ class HomeCubit extends Cubit<HomeState> {
   final AddToFavoriteCharactersUseCase _addToFavoriteCharactersUseCase =
       getIt.get<AddToFavoriteCharactersUseCase>();
 
-  getCharacters() async {
+  Future<void> getCharacters() async {
     state.currentPage = 1;
     state.isAllLoaded = false;
     state.characters = [];
@@ -64,7 +64,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  loadMoreCharacters() async {
+  Future<void> loadMoreCharacters() async {
     state.currentPage += 1;
     state.isLoadingMore = true;
     emit(state.copyWith(isLoadingMore: state.isLoadingMore));

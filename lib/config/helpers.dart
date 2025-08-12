@@ -43,7 +43,7 @@ String getCharacterSpeciesIconPath(CharacterSpecies value) {
 }
 
 extension ToLabelCase on String {
-  toLabelCase() {
+  String toLabelCase() {
     if (isEmpty) return this;
     return this[0].toUpperCase() + substring(1).toLowerCase();
   }
