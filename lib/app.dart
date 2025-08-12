@@ -13,12 +13,15 @@ class RickAndMortyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(create: (BuildContext context) => HomeCubit()),
-        BlocProvider<DetailsCubit>(create: (BuildContext context) => DetailsCubit(),)
-      ], 
-    child: MaterialApp.router(
-      title: 'Rick And Morty',
-      theme: theme,
-      routerConfig: AppRouterHelper.router,
-    ));
+        BlocProvider<DetailsCubit>(
+          create: (BuildContext context) => DetailsCubit(),
+        ),
+      ],
+      child: MaterialApp.router(
+        title: 'Rick And Morty',
+        theme: theme,
+        routerConfig: AppRouterHelper.router,
+      ),
+    );
   }
 }
